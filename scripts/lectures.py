@@ -44,10 +44,11 @@ class Lecture():
         self.course = course
 
     def edit(self):
+        print(str(self.file_path))
         subprocess.Popen([
-            "x-terminal-emulator",
-            "-e", "zsh", "-i", "-c",
-            f"\\vim --servername kulak --remote-silent {str(self.file_path)}"
+            "alacritty",
+            "-e", "nvim",
+            f"{str(self.file_path)}"
         ])
 
     def __str__(self):

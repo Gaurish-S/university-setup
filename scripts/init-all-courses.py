@@ -10,6 +10,7 @@ for course in Courses():
                  r'\begin{document}',
                  r'    \maketitle',
                  r'    \tableofcontents',
+                 r'    \newpage',
                  fr'    % start lectures',
                  fr'    % end lectures',
                  r'\end{document}'
