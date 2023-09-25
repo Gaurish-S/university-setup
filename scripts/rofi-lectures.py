@@ -4,6 +4,7 @@ from rofi import rofi
 from utils import generate_short_title, MAX_LEN
 
 lectures = Courses().current.lectures
+print(lectures)
 
 sorted_lectures = sorted(lectures, key=lambda l: -l.number)
 

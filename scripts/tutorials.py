@@ -11,8 +11,7 @@ import subprocess
 from config import get_week, DATE_FORMAT, CURRENT_COURSE_ROOT
 
 # TODO
-locale.setlocale(locale.LC_TIME, "nl_BE.utf8")
-
+locale.setlocale(locale.LC_TIME, "en_US.utf8")
 
 def number2filename(n):
     return 'tut_{0:02d}.tex'.format(n)
@@ -39,6 +38,7 @@ class Tutorial():
         self.file_path = file_path
         self.date = date
         self.week = week
+        print(filename2number(file_path.stem))
         self.number = filename2number(file_path.stem)
         self.title = title
         self.course = course
@@ -59,7 +59,7 @@ class Tutorials(list):
     def __init__(self, course):
         self.course = course
         self.root = course.path
-        self.master_file = self.root / 'master.tex'
+        self.master_file = self.root / 'mastertut.tex'
         list.__init__(self, self.read_files())
 
     def read_files(self):
