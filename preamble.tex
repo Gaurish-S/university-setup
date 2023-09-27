@@ -2,13 +2,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-\usepackage[dutch]{babel}
+\usepackage[english]{babel}
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{enumitem}
 \usepackage{svg}
+\usepackage{pdfpages}
 
 \pdfminorversion=7
 
@@ -78,48 +79,21 @@
 
 % Environments
 \makeatother
-% For box around Definition, Theorem, \ldots
-\usepackage{mdframed}
-\mdfsetup{skipabove=1em,skipbelow=0em}
 \theoremstyle{definition}
-\newmdtheoremenv[nobreak=true]{definitie}{Definitie}
-\newmdtheoremenv[nobreak=true]{eigenschap}{Eigenschap}
-\newmdtheoremenv[nobreak=true]{gevolg}{Gevolg}
-\newmdtheoremenv[nobreak=true]{lemma}{Lemma}
-\newmdtheoremenv[nobreak=true]{propositie}{Propositie}
-\newmdtheoremenv[nobreak=true]{stelling}{Stelling}
-\newmdtheoremenv[nobreak=true]{wet}{Wet}
-\newmdtheoremenv[nobreak=true]{postulaat}{Postulaat}
-\newmdtheoremenv{conclusie}{Conclusie}
-\newmdtheoremenv{toemaatje}{Toemaatje}
-\newmdtheoremenv{vermoeden}{Vermoeden}
-\newtheorem*{herhaling}{Herhaling}
-\newtheorem*{intermezzo}{Intermezzo}
-\newtheorem*{notatie}{Notatie}
-\newtheorem*{observatie}{Observatie}
-\newtheorem*{oef}{Oefening}
-\newtheorem*{opmerking}{Opmerking}
-\newtheorem*{praktisch}{Praktisch}
-\newtheorem*{probleem}{Probleem}
-\newtheorem*{terminologie}{Terminologie}
-\newtheorem*{toepassing}{Toepassing}
-\newtheorem*{uovt}{UOVT}
-\newtheorem*{vb}{Voorbeeld}
-\newtheorem*{vraag}{Vraag}
-
-\newmdtheoremenv[nobreak=true]{definition}{Definition}
-\newtheorem*{eg}{Example}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem*{solution}{Solution}
 \newtheorem*{notation}{Notation}
 \newtheorem*{previouslyseen}{As previously seen}
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
 \newtheorem*{problem}{Problem}
 \newtheorem*{observe}{Observe}
-\newtheorem*{property}{Property}
+\newtheorem{property}{Property}
 \newtheorem*{intuition}{Intuition}
-\newmdtheoremenv[nobreak=true]{prop}{Proposition}
-\newmdtheoremenv[nobreak=true]{theorem}{Theorem}
-\newmdtheoremenv[nobreak=true]{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
 
 % End example and intermezzo environments with a small diamond (just like proof
 % environments end with a small square)
@@ -183,6 +157,24 @@
         \def\@lecture{Lecture #1: #3}%
     }%
     \subsection*{\@lecture}
+    \marginpar{\small\textsf{\mbox{#2}}}
+}
+
+% same for tutorials
+\usepackage{xifthen}
+\def\testdateparts#1{\dateparts#1\relax}
+\def\dateparts#1 #2 #3 #4 #5\relax{
+    \marginpar{\small\textsf{\mbox{#1 #2 #3 #5}}}
+}
+
+\def\@tutorial{}%
+\newcommand{\tutorial}[3]{
+    \ifthenelse{\isempty{#3}}{%
+        \def\@tutorial{Tutorial #1}%
+    }{%
+        \def\@tutorial{Tutorial #1: #3}%
+    }%
+    \subsection*{\@tutorial}
     \marginpar{\small\textsf{\mbox{#2}}}
 }
 
@@ -263,4 +255,4 @@
 
 
 % My name
-\author{Gilles Castel}
+\author{Gaurish Sharma}
