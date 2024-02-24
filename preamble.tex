@@ -10,6 +10,7 @@
 \usepackage{enumitem}
 \usepackage{svg}
 \usepackage{pdfpages}
+\usepackage{graphicx}
 
 \pdfminorversion=7
 
@@ -87,6 +88,7 @@
 \newtheorem*{previouslyseen}{As previously seen}
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
 \newtheorem*{problem}{Problem}
 \newtheorem*{observe}{Observe}
 \newtheorem{property}{Property}
@@ -94,6 +96,7 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
+
 
 % End example and intermezzo environments with a small diamond (just like proof
 % environments end with a small square)
@@ -252,6 +255,10 @@
 % Fix some stuff
 % %http://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning
 \pdfsuppresswarningpagegroup=1
+
+% no inline equation line breaks
+\binoppenalty=10000 
+\relpenalty=10000 
 
 
 % My name
